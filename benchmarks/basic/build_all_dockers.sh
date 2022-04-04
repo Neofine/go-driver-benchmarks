@@ -1,6 +1,6 @@
 set -e
 
-for driver in cassandra-cpp cdrs-tokio cpp cpp-multi gocql rust; do
+for driver in scylla-go-driver gocql rust; do
     echo "Building $driver..."
     cd $driver
     ./build.sh

@@ -2,8 +2,8 @@
 Benchmarks for Scylla Rust Driver
 
 ## Benchmarks
-* Basic - performs basic operations (inserts/selects), max `concurrency` active requests at once  
-![](images/bench10to7-inserts.svg)
+* Current benchmarks
+![](images/chart.png)
 
 ## Drivers:
 * `scylla-rust-driver` - [Scylla Rust driver](https://github.com/scylladb/scylla-rust-driver)
