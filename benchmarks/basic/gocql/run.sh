@@ -1,2 +1,3 @@
 #!/bin/bash
-docker run --rm -it --network host rust-driver-benchmarks-basic-gocql /source/basic "$@"
+source ../config.sh
+docker run --rm --memory=$mem --memory-swap=$memSwap --cpus=$cpus -it --network host benchmark-gocql /source/basic "$@"
