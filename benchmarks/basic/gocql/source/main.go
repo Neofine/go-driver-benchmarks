@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"runtime/debug"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -14,6 +15,7 @@ const insertStmt = "INSERT INTO benchks.benchtab (pk, v1, v2) VALUES(?, ?, ?)"
 const selectStmt = "SELECT v1, v2 FROM benchks.benchtab WHERE pk = ?"
 
 func main() {
+	debug.SetGCPercent(500)
 	config := readConfig()
 	fmt.Printf("Benchmark configuration: %#v\n", config)
 

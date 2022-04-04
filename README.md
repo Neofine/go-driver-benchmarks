@@ -1,17 +1,14 @@
 # Rust driver benchmarks
-Benchmarks for Scylla Rust Driver
+Benchmarks for Scylla Golang Driver
 
 ## Benchmarks
-* Current benchmarks
-![](images/chart.png)
+![](images/nolimits.png)
+![](images/dockerlimitsgogc.png)
 
 ## Drivers:
+* 'scylla-go-driver' - [Scylla Go driver](https://github.com/mmatczuk/scylla-go-driver)
 * `scylla-rust-driver` - [Scylla Rust driver](https://github.com/scylladb/scylla-rust-driver)
-* `cpp` - [Scylla C++ driver](https://github.com/scylladb/cpp-driver), running on a single thread because multiple threads are [buggy](https://github.com/scylladb/cpp-driver/issues/36)
-* `cpp-multi`- [Datastax Cassandra C++ Driver](https://github.com/datastax/cpp-driver), running on multiple threads.
-* `cassandra-cpp` - [Rust bindings for Datastax C++ Driver](https://github.com/datastax/cpp-driver), running on multiple threads using Tokio.
 * `gocql` - A [driver written in Go](https://github.com/gocql/gocql)
-* `cdrs-tokio` - Another compatible [driver written in Rust](https://github.com/krojew/cdrs-tokio)
 
 ## How to run a benchmark
 Each benchmark is inside a Docker image  
