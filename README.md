@@ -6,7 +6,7 @@ Benchmarks for Scylla Golang Driver
 ![](images/dockerlimitsgogc.png)
 
 ## Drivers:
-* 'scylla-go-driver' - [Scylla Go driver](https://github.com/mmatczuk/scylla-go-driver)
+* `scylla-go-driver` - [Scylla Go driver](https://github.com/mmatczuk/scylla-go-driver)
 * `scylla-rust-driver` - [Scylla Rust driver](https://github.com/scylladb/scylla-rust-driver)
 * `gocql` - A [driver written in Go](https://github.com/gocql/gocql)
 
