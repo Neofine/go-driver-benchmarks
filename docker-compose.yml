@@ -1,0 +1,83 @@
+version: "3"
+
+services:
+
+  scylla-node1:
+    container_name: scylla-node1
+    image: scylladb/scylla:latest
+    restart: always
+    command: --seeds=scylla-node1,scylla-node2 --smp 4 --memory 2G --overprovisioned 1 --api-address 0.0.0.0
+    volumes:
+      - "./scylla/scylla.yaml:/etc/scylla/scylla.yaml"
+      - "./scylla/cassandra-rackdc.properties.dc1:/etc/scylla/cassandra-rackdc.properties"
+    networks:
+      public:
+        ipv4_address: 192.168.101.101
+
+  scylla-node2:
+    container_name: scylla-node2
+    image: scylladb/scylla:latest
+    restart: always
+    command: --seeds=scylla-node1,scylla-node2 --smp 4 --memory 2G --overprovisioned 1 --api-address 0.0.0.0
+    volumes:
+      - "./scylla/scylla.yaml:/etc/scylla/scylla.yaml"
+      - "./scylla/cassandra-rackdc.properties.dc1:/etc/scylla/cassandra-rackdc.properties"
+    networks:
+      public:
+        ipv4_address: 192.168.101.102
+
+  scylla-node3:
+    container_name: scylla-node3
+    image: scylladb/scylla:latest
+    restart: always
+    command: --seeds=scylla-node1,scylla-node2 --smp 4 --memory 2G --overprovisioned 1 --api-address 0.0.0.0
+    volumes:
+      - "./scylla/scylla.yaml:/etc/scylla/scylla.yaml"
+      - "./scylla/cassandra-rackdc.properties.dc1:/etc/scylla/cassandra-rackdc.properties"
+    networks:
+      public:
+        ipv4_address: 192.168.101.103
+
+  scylla-node4:
+    container_name: scylla-node4
+    image: scylladb/scylla:latest
+    restart: always
+    command: --seeds=scylla-node1,scylla-node4 --smp 4 --memory 2G --overprovisioned 1 --api-address 0.0.0.0
+    volumes:
+      - "./scylla/scylla.yaml:/etc/scylla/scylla.yaml"
+      - "./scylla/cassandra-rackdc.properties.dc2:/etc/scylla/cassandra-rackdc.properties"
+    networks:
+      public:
+        ipv4_address: 192.168.101.104
+
+  scylla-node5:
+    container_name: scylla-node5
+    image: scylladb/scylla:latest
+    restart: always
+    command: --seeds=scylla-node1,scylla-node4 --smp 4 --memory 2G --overprovisioned 1 --api-address 0.0.0.0
+    volumes:
+      - "./scylla/scylla.yaml:/etc/scylla/scylla.yaml"
+      - "./scylla/cassandra-rackdc.properties.dc2:/etc/scylla/cassandra-rackdc.properties"
+    networks:
+      public:
+        ipv4_address: 192.168.101.105
+
+  scylla-node6:
+    container_name: scylla-node6
+    image: scylladb/scylla:latest
+    restart: always
+    command: --seeds=scylla-node1,scylla-node4 --smp 4 --memory 2G --overprovisioned 1 --api-address 0.0.0.0
+    volumes:
+      - "./scylla/scylla.yaml:/etc/scylla/scylla.yaml"
+      - "./scylla/cassandra-rackdc.properties.dc2:/etc/scylla/cassandra-rackdc.properties"
+    networks:
+      public:
+        ipv4_address: 192.168.101.106
+
+networks:
+  public:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.101.0/24
